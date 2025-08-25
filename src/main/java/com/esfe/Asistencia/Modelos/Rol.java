@@ -1,28 +1,31 @@
 package com.esfe.Asistencia.Modelos;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-
+import jakarta.validation.constraints.NotBlank;
 @Entity
 public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Integer    Id;
 
-    @NotBlank(message = "El nombre de rol es requerido")
-    private String Nombre;
+    @NotBlank(message = "El nombre del rol no puede estar vacío")
+    private String     Nombre;
 
-    public Integer getId(){
+    public Integer getId() {
         return Id;
     }
-    public void setId(Integer pId){
-        Id = pId;
-    }
-    public String getNombre(){
-        return Nombre;
-    }
-    public void setNombre(String Nombre){
-        this.Nombre = Nombre;
+
+    public void setId(Integer id) {
+        this.Id = id;
     }
 
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.Nombre = nombre;
+    }
+    
+    
 }

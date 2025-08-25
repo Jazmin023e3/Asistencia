@@ -1,4 +1,5 @@
 package com.esfe.Asistencia.Modelos;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -17,8 +18,6 @@ public class DocenteGrupo {
     private Grupo grupo;
 
     private int anio;
-
-    private String ciclo;
 
     public Integer getId() {
         return id;
@@ -51,6 +50,8 @@ public class DocenteGrupo {
     public void setAnio(int anio) {
         this.anio = anio;
     }
+
+    private String ciclo;
 
     public String getCiclo() {
         return ciclo;

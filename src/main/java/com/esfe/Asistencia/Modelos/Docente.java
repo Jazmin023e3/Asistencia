@@ -1,13 +1,12 @@
 package com.esfe.Asistencia.Modelos;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-
 import java.util.*;
 
 @Entity
 @Table(name = "docentes")
 public class Docente {
-  @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -29,20 +28,13 @@ public class Docente {
 
     @ManyToMany
     @JoinTable(
-            name = "docentes_grupos",
-            joinColumns = @JoinColumn(name = "docente_id"),
-            inverseJoinColumns = @JoinColumn(name = "grupo_id")
+        name = "docentes_grupos",
+        joinColumns = @JoinColumn(name = "docente_id"),
+        inverseJoinColumns = @JoinColumn(name = "grupo_id")
     )
-    
     private Set<Grupo> grupos = new HashSet<>();
+    
 
-    public Set<Grupo> getGrupos() {
-        return grupos;
-    }
-
-    public void setGrupos(Set<Grupo> grupos) {
-        this.grupos = grupos;
-    }
 
     public Integer getId() {
         return id;
@@ -90,5 +82,13 @@ public class Docente {
 
     public void setEscuela(String escuela) {
         this.escuela = escuela;
+    }
+
+    public Set<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(Set<Grupo> grupos) {
+        this.grupos = grupos;
     }
 }
